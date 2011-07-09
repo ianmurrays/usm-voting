@@ -3,6 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.users {
-  // Add the users class to your body tag
-  // Then, place scoped styles here.
+  .field {
+    margin: 10px 0;
+    
+    label {
+      float: left;
+      line-height: 28px;
+    }
+    
+    input, select {
+      float:right;
+    }
+    
+    select {
+      margin: 10px;
+    }
+  }
 }

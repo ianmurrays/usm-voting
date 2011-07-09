@@ -8,19 +8,21 @@
 
 = form_for @user, :url => sign_up_path, :method => :post do |f|
   .field
-    = f.label :rol
-    %br
+    = f.label :rol, 'ROL USM (sin puntos ni guión)'
     = f.text_field :rol
+    .clear
   
   .field
-    = f.label :rut
-    %br
+    = f.label :rut, 'RUT (sin puntos ni guión)'
     = f.text_field :rut
+    .clear
 
   .field
     = f.label :carreer, 'Carrera'
-    %br
-    = f.text_field :carreer
+    = f.select :carreer, ['Informática', 'Mecánica']
+    .clear
 
   .field
-    = f.submit 'Enviar'
+    %button{:type => 'submit', :class => 'button small green'}
+      %span Enviar &rarr;
+    .clear
