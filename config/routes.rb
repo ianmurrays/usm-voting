@@ -1,6 +1,9 @@
 Voting::Application.routes.draw do
-  get "sessions/new"
+  get 'sessions/new'
   match '/auth/:provider/callback', :to => 'sessions#create'
+  get '/sign_up', :to => 'users#sign_up'
+  post '/sign_up', :to => 'users#save'
+  get 'users/landing'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -51,7 +54,7 @@ Voting::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'users#landing'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  uid: MyString
+  name: MyString
+  last_name: MyString
+  rol: MyString
+  rut: MyString
+  carrera: MyString
+
+two:
+  email: MyString
+  uid: MyString
+  name: MyString
+  last_name: MyString
+  rol: MyString
+  rut: MyString
+  carrera: MyString

@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if signed_in? %>
+Hola <%= current_user.name %>.
+<% end %>
 <%= yield %>
 
 </body>

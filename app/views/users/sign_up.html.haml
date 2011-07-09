@@ -1,0 +1,26 @@
+%p
+  Hola
+  = @user.name
+  \. Necesitamos que completes un par de datos antes de que puedas votar.
+
+- @user.errors.full_messages.each do |m|
+  %p= m
+
+= form_for @user, :url => sign_up_path, :method => :post do |f|
+  .field
+    = f.label :rol
+    %br
+    = f.text_field :rol
+  
+  .field
+    = f.label :rut
+    %br
+    = f.text_field :rut
+
+  .field
+    = f.label :carreer, 'Carrera'
+    %br
+    = f.text_field :carreer
+
+  .field
+    = f.submit 'Enviar'
