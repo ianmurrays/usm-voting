@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   skip_before_filter :validate_profile, :only => [:sign_up, :save]
   
   def sign_up
+    redirect_to root_path and return if current_user.registered
+    
     @user = current_user
     
     respond_to do |f|
@@ -10,6 +12,8 @@ class UsersController < ApplicationController
   end
   
   def save
+    redirect_to root_path and return if current_user.registered
+    
     @user = current_user
     
     # No overwritting this!
