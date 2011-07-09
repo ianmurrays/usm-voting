@@ -36,6 +36,5 @@ class UsersController < ApplicationController
   
   def landing
     redirect_to sessions_new_path unless signed_in?
-    render :text => "LANDING, if you're here we're good!"
   end
 end
