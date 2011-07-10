@@ -1,1 +1,16 @@
-%li= link_to poll.question, poll
+.poll
+  &rarr;
+  = link_to poll.question, poll
+  .meta
+    - if poll.open?
+      %span.open abierta
+    - else
+      %span.closed cerrada
+    /\|
+    /= "creada el #{poll.created_at.strftime '%d/%m/%Y'}"
+    - if poll.open?
+      \|
+      cierra en
+      = distance_of_time_in_words(Time.now, poll.finish_date)
+
+.separator
