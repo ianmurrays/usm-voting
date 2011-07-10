@@ -17,3 +17,13 @@ h1 {
   font-weight: bold;
   text-align: center;
 }
+
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  color: gray;
+  
+  a:link, a:visited, a:active {
+    color: gray;
+  }
+}
