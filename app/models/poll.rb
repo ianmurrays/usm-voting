@@ -6,4 +6,8 @@ class Poll < ActiveRecord::Base
   def open?
     self.finish_date > Time.now and Time.now > self.start_date
   end
+  
+  def user_voted?(user)
+    false # TODO
+  end
 end

@@ -1,4 +1,13 @@
-%h1= @poll.question
+%h1
+  Votación:
+  = @poll.question
 
-%ul
-  = render @poll.alternatives
+.alternatives
+  - if @poll.user_voted? current_user
+    %p Ya votaste.
+  - else
+    - # List all alternatives
+    - # TODO: Randomize order
+    - @poll.alternatives.each do |alternative|
+      = link_to "<span>#{alternative.description}</span>".html_safe, "#", :class => 'button large gray'
+      %br

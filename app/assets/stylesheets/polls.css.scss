@@ -3,6 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.polls {
+  .alternatives {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    
+    a {
+      display: block;
+    }
+  }
+  
   .poll {
     font-weight: bold;
     margin: 10px 0;
