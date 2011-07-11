@@ -1,6 +1,7 @@
 %h1
   Votación:
   = @poll.question
+  = "(creada #{@poll.created_at.strftime '%d/%m/%Y'})"
 
 .alternatives
   - if @poll.user_voted? current_user
@@ -13,6 +14,6 @@
     - @poll.alternatives.sort_by{ rand }.each do |alternative|
       = form_tag cast_poll_path do
         = hidden_field_tag :alternative, alternative.id
-        %button{:type => 'submit', :class => 'button large gray'}
+        %button{:type => 'submit', :class => 'button large blue'}
           %span= alternative.description
       %br
