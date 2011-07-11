@@ -10,7 +10,7 @@
   - else
     - # List all alternatives
     - # TODO: Randomize order
-    - @poll.alternatives.each do |alternative|
+    - @poll.alternatives.sort_by{ rand }.each do |alternative|
       = form_tag cast_poll_path do
         = hidden_field_tag :alternative, alternative.id
         %button{:type => 'submit', :class => 'button large gray'}
