@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates :name, :last_name, :rol, :rut, :carreer, :presence => true, :on => :update
   validates :registered, :inclusion => { :in => [true, false] }
   
+  has_many :ballots
+  
   def self.create_or_find_by_hash(hash)
     unless user = find_by_uid(hash['uid'])
       # Create the user

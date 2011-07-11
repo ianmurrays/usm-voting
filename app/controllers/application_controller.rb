@@ -28,4 +28,8 @@ class ApplicationController < ActionController::Base
       redirect_to sign_up_path unless current_user.registered
     end
   end
+  
+  def not_found
+    render(:file => "#{Rails.root.to_s}/public/404.html", :layout => false, :status => 404)
+  end
 end

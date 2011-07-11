@@ -5,7 +5,11 @@ Voting::Application.routes.draw do
   post '/sign_up', :to => 'users#save'
   get 'users/landing'
   
-  resources :polls
+  resources :polls do
+    member do
+      post 'cast_ballot', :as => :cast
+    end
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
