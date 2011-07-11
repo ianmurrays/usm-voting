@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :uid, :email, :presence => true
   validates :name, :last_name, :rol, :rut, :carreer, :presence => true, :on => :update
   validates :registered, :inclusion => { :in => [true, false] }
-  validates :carreer, :inclusion => { :in => CARREERS }
+  validates :carreer, :inclusion => { :in => CARREERS }, :on => :update
   
   validates :rut, :rol, :rut => true
   
