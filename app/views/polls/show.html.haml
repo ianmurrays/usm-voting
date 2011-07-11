@@ -3,6 +3,8 @@
   = @poll.question
   = "(creada #{@poll.created_at.strftime '%d/%m/%Y'})"
 
+.important Recuerda que tu voto es único y no puede ser cambiado!
+
 .alternatives
   - if @poll.user_voted? current_user
     %p Gracias por tu voto

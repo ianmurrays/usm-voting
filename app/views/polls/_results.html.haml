@@ -6,7 +6,10 @@
       \|
       %span
         = a.ballots.count
-        = "(#{number_with_precision(a.ballots.count.to_f / poll.total_ballots.to_f * 100.0, :precision => 2)}%)"
+        - if poll.total_ballots > 0
+          = "(#{number_with_precision(a.ballots.count.to_f / poll.total_ballots.to_f * 100.0, :precision => 2)}%)"
+        - else
+          (0%)
 
   %p 
     = poll.total_ballots
