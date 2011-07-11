@@ -13,6 +13,10 @@ Voting::Application.routes.draw do
     end
   end
   
+  namespace :admin do
+    resources :polls
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,14 @@
+defaults: &defaults
+  site_title: "Sistema de Votaciones USM"
+  
+production:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+test: &testing
+  <<: *defaults
+
+cucumber:
+  <<: *testing

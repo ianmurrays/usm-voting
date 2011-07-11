@@ -7,7 +7,15 @@ require 'rails/all'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Voting
+  # Allows easier access to configurations variables
+  # Taken from Teambox source code
+  def self.config
+    Rails.configuration
+  end
+  
   class Application < Rails::Application
+    config.from_file 'settings.yml'
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

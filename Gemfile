@@ -26,6 +26,9 @@ gem 'omniauth'
 # HAML
 gem 'haml'
 
+# For admin password configuration
+gem 'choices'
+
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
