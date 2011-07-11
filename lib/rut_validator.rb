@@ -12,9 +12,6 @@ class RutValidator < ActiveModel::EachValidator
     puts rut.inspect
     for n in rut
       s += v * n.to_i
-      puts "v = #{v}"
-      puts "n = #{n}"
-      puts "s = #{s}"
             
       v += 1
       if v == 8
