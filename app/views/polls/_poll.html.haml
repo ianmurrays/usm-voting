@@ -4,6 +4,8 @@
   .meta
     - if poll.open?
       %span.open abierta
+    - elsif poll.not_started?
+      %span.closed aun no empieza
     - else
       %span.closed cerrada
       \|

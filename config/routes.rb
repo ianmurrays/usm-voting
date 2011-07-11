@@ -12,7 +12,8 @@ Voting::Application.routes.draw do
       get 'results'
     end
   end
-  
+
+  match 'admin' => redirect('/admin/polls')
   namespace :admin do
     resources :polls
   end

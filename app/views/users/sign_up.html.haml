@@ -10,17 +10,17 @@
 = form_for @user, :url => sign_up_path, :method => :post do |f|
   .field
     = f.label :rol, 'ROL USM (sin puntos, ej: 2773500-0)'
-    = f.text_field :rol
+    .field-container= f.text_field :rol
     .clear
   
   .field
     = f.label :rut, 'RUT (sin puntos, ej: 33333333-3)'
-    = f.text_field :rut
+    .field-container= f.text_field :rut
     .clear
 
   .field
     = f.label :carreer, 'Carrera'
-    = f.select :carreer, User::CARREERS.sort_by { rand } # Shuffle them so no carreer is at the top
+    .field-container= f.select :carreer, User::CARREERS.sort_by { rand } # Shuffle them so no carreer is at the top
     .clear
 
   .field

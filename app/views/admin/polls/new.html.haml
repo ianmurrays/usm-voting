@@ -1,0 +1,35 @@
+- @poll.errors.full_messages.each do |m|
+  %p.error
+    &times;
+    = m
+
+= form_for @poll, :url => admin_polls_path do |f|
+  .field
+    = f.label :question, 'Título de la votación'
+    .field-container= f.text_field :question
+    .clear
+    
+  .field
+    = f.label :start_date, 'Fecha y Hora de Apertura'
+    .field-container= f.datetime_select :start_date
+    .clear
+    
+  .field
+    = f.label :finish_date, 'Fecha y Hora de Cierre'
+    .field-container= f.datetime_select :finish_date
+    .clear
+    
+  =#- if @poll.new_record? and @poll.alternatives.empty?
+  - 5.times { @poll.alternatives << Alternative.new }
+  - @poll.alternatives.each do |alternative|
+    .field.alternative
+      = f.fields_for :alternatives, alternative do |ff|
+        =# ff.hidden_field :nested, :value => 'true' if @poll.new_record?
+        = ff.label :description, 'Alternativa'
+        .field-container= ff.text_field :description
+      .clear
+  
+  .field
+    %button{:type => 'submit', :class => 'button small green'}
+      %span Enviar &rarr;
+

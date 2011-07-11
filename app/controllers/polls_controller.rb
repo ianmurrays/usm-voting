@@ -38,7 +38,7 @@ class PollsController < ApplicationController
     @poll = Poll.find params[:id]
     
     # Should not be able to see results if poll isn't closed
-    not_found and return unless @poll.closed?
+    not_found and return unless @poll.finished?
     
     respond_to do |f|
       f.js

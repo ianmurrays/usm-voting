@@ -6,7 +6,9 @@
 .alternatives
   - if @poll.user_voted? current_user
     %p Gracias por tu voto
-  - elsif @poll.closed?
+  - elsif @poll.not_started?
+    %p No ha empezado la votación.
+  - elsif @poll.finished?
     %p Lo sentimos, las votaciones ya finalizaron.
   - else
     - # List all alternatives

@@ -2,6 +2,8 @@ class Poll < ActiveRecord::Base
   has_many :alternatives
   has_many :ballots
   
+  accepts_nested_attributes_for :alternatives
+  
   validates :question, :start_date, :finish_date, :presence => true
   
   def open?
@@ -10,6 +12,15 @@ class Poll < ActiveRecord::Base
   
   def closed?
     !open?
+  end
+  
+  # If the poll already occured
+  def finished?
+    self.finish_date < Time.now
+  end
+  
+  def not_started?
+    self.start_date > Time.now
   end
   
   def user_voted?(user)

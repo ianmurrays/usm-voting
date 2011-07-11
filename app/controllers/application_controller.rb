@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     redirect_to sessions_new_path unless signed_in?
   end
   
+  def authorize_admin
+    redirect_to sessions_new_path unless signed_in? and current_user.admin
+  end
+  
   def validate_profile
     if signed_in?
       redirect_to sign_up_path unless current_user.registered
