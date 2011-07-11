@@ -1,12 +1,13 @@
-- poll.alternatives.each do |a|
-  %p
-    &rarr;
-    = a.description
-    \|
-    %span
-      = a.ballots.count
-      = "(#{a.ballots.count / poll.total_ballots * 100}%)"
+- cache "poll_results_#{poll.id}" do
+  - poll.alternatives.each do |a|
+    %p
+      &rarr;
+      = a.description
+      \|
+      %span
+        = a.ballots.count
+        = "(#{number_with_precision(a.ballots.count.to_f / poll.total_ballots.to_f * 100.0, :precision => 2)}%)"
 
-%p 
-  = poll.total_ballots
-  votos emitidos.
+  %p 
+    = poll.total_ballots
+    votos emitidos.

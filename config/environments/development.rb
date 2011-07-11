@@ -24,4 +24,6 @@ Voting::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+  
+  config.action_controller.perform_caching = false
 end

@@ -28,6 +28,9 @@ class PollsController < ApplicationController
     # Cast the ballot
     @poll.cast_ballot current_user, alternative
     
+    # Clear the cache if it exists
+    expire_fragment "poll_results_#{@poll.id}"
+    
     redirect_to poll_path(@poll)
   end
   
