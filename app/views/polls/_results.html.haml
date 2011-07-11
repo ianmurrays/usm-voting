@@ -1,0 +1,12 @@
+- poll.alternatives.each do |a|
+  %p
+    &rarr;
+    = a.description
+    \|
+    %span
+      = a.ballots.count
+      = "(#{a.ballots.count / poll.total_ballots * 100}%)"
+
+%p 
+  = poll.total_ballots
+  votos emitidos.

@@ -9,6 +9,7 @@ Voting::Application.routes.draw do
   resources :polls do
     member do
       post 'cast_ballot', :as => :cast
+      get 'results'
     end
   end
   

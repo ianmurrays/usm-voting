@@ -21,4 +21,9 @@ class Poll < ActiveRecord::Base
     alternative.ballots.build :user => user, :poll => self
     alternative.save
   end
+  
+  def total_ballots
+    @total_ballots ||= Ballot.where(:poll_id => self.id).count
+    @total_ballots
+  end
 end

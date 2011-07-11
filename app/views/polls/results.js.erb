@@ -1,0 +1,1 @@
+$('#results_<%= @poll.id %>').html('<%= escape_javascript render(:partial => "results", :locals => {:poll => @poll}) %>');
