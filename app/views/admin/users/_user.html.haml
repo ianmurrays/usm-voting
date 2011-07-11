@@ -1,0 +1,7 @@
+%li
+  &rarr;
+  = user.full_name
+  = "(#{user.email})"
+  - if user != current_user
+    \|
+    = link_to "revocar permisos", revoke_admin_user_path(user), :confirm => "Seguro que quieres revocar los permisos de #{user.full_name}?", :method => :delete

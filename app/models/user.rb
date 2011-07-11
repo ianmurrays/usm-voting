@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::Validations
   
-  CARREERS = ['INFORMATICA', 'MECANICA', 'PLAN COMUN', 'CIVIL', 'QUIMICA'] # FIXME: Are all carreers here?
+  CARREERS = ['INFORMATICA', 'MECANICA', 'PLAN COMUN', 'CIVIL', 'QUIMICA', 'ELECTRICA'] # FIXME: Are all carreers here?
   
   validates :uid, :email, :presence => true
   validates :name, :last_name, :rol, :rut, :carreer, :presence => true, :on => :update
@@ -10,8 +10,8 @@ class User < ActiveRecord::Base
   
   validates :rut, :rol, :rut => true
   
-  before_save -> { self.rut.gsub! /\./, '' }
-  before_save -> { self.rol.gsub! /\./, '' }
+  before_save -> { self.rut.try(:gsub!, /\./, '') }
+  before_save -> { self.rol.try(:gsub!, /\./, '') }
   
   has_many :ballots
   

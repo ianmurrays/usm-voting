@@ -1,0 +1,12 @@
+%h1 Lista de administradores
+
+%ul.admins= render @admins
+
+= form_tag grant_admin_users_path do
+  .field
+    = label_tag :email, 'Email'
+    .field-container
+      = text_field_tag :email
+      %button{:type => :submit, :class => 'button small green'}
+        %span &rarr; Dar permisos
+    .clear

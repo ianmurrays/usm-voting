@@ -16,6 +16,15 @@ Voting::Application.routes.draw do
   match 'admin' => redirect('/admin/polls')
   namespace :admin do
     resources :polls
+    resources :users do
+      collection do
+        post 'grant', :to => 'users#grant'
+      end
+      
+      member do
+        delete 'revoke', :to => 'users#revoke'
+      end
+    end
   end
   
   # The priority is based upon order of creation:

@@ -1,6 +1,8 @@
 class RutValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     # Adapted from http://www.dcc.uchile.cl/~mortega/microcodigos/validarrut/ruby.html
+    return if value.nil?
+    
     rut = value.gsub(/\./, '').split('-').first.to_i
     verify_vd = value.gsub(/\./, '').split('-')[1]
     
