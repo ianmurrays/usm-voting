@@ -6,16 +6,20 @@ class RutValidator < ActiveModel::EachValidator
     rut = value.gsub(/\./, '').split('-').first.to_i
     verify_vd = value.gsub(/\./, '').split('-')[1]
     
-    v = 1
+    v = 2
     s = 0
-    for i in (2..9)
-      if i == 8
+    rut = rut.to_s.split('').reverse
+    puts rut.inspect
+    for n in rut
+      s += v * n.to_i
+      puts "v = #{v}"
+      puts "n = #{n}"
+      puts "s = #{s}"
+            
+      v += 1
+      if v == 8
         v = 2
-      else 
-        v += 1
       end
-      s += v * (rut % 10)
-      rut /= 10
     end
     
     s = 11 - s % 11
@@ -27,6 +31,6 @@ class RutValidator < ActiveModel::EachValidator
       s
     end
     
-    record.errors[attribute] << "incorrecto" unless vd.to_s == verify_vd
+    record.errors[attribute] << "incorrecto" unless vd.to_s == verify_vd.try(:downcase)
   end
 end
