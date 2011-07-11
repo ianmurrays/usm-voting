@@ -8,6 +8,15 @@
   
   %body{:class => "#{params[:controller].parameterize}"}
     .container_12
+      .grid_8.prefix_2.suffix_2.header
+        %h1= link_to "Sistema de votaciones online USM", root_path
+        - if signed_in?
+          .menu
+            Estás conectado como
+            = current_user.full_name
+            \|
+            = link_to "Salir", logout_path, :method => :delete
+      .clear
       .grid_8.prefix_2.suffix_2= yield
       .clear
       .grid_8.prefix_2.suffix_2.footer

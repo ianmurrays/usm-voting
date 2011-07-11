@@ -1,7 +1,17 @@
 class User < ActiveRecord::Base
+  include ActiveModel::Validations
+  
+  CARREERS = ['INFORMATICA', 'MECANICA', 'PLAN COMUN', 'CIVIL', 'QUIMICA'] # FIXME: Are all carreers here?
+  
   validates :uid, :email, :presence => true
   validates :name, :last_name, :rol, :rut, :carreer, :presence => true, :on => :update
   validates :registered, :inclusion => { :in => [true, false] }
+  validates :carreer, :inclusion => { :in => CARREERS }
+  
+  validates :rut, :rol, :rut => true
+  
+  before_save -> { self.rut.gsub! /\./, '' }
+  before_save -> { self.rol.gsub! /\./, '' }
   
   has_many :ballots
   
@@ -15,5 +25,9 @@ class User < ActiveRecord::Base
     else
       user # Return the user
     end
+  end
+  
+  def full_name
+    "#{self.name} #{self.last_name}"
   end
 end

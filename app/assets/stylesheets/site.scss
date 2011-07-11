@@ -13,9 +13,31 @@ input[type=text] {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
+}
+
+.header {
+  margin: 20px 0;
+  
+  h1 {
+    font-size: 24px;
+    
+    a:link, a:visited, a:active {
+      color: black;
+    }
+  }
+  
+  .menu {
+    margin-top: 5px;
+    color: black;
+    text-align: center;
+    
+    a:link, a:visited, a:active {
+      color: gray;
+    }
+  }
 }
 
 .footer {

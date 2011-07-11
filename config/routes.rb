@@ -1,6 +1,7 @@
 Voting::Application.routes.draw do
-  get 'sessions/new'
+  get 'login', :to => 'sessions#new', :as => 'sessions_new'
   match '/auth/:provider/callback', :to => 'sessions#create'
+  delete 'logout', :to => 'sessions#destroy'
   get '/sign_up', :to => 'users#sign_up'
   post '/sign_up', :to => 'users#save'
   get 'users/landing'

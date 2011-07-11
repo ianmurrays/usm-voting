@@ -1,25 +1,26 @@
 %p
-  Hola
-  = @user.name
-  \. Necesitamos que completes un par de datos antes de que puedas votar.
+  = "Hola #{@user.full_name.titleize}."
+  Necesitamos que completes un par de datos antes de que puedas votar. 
 
 - @user.errors.full_messages.each do |m|
-  %p= m
+  %p.error
+    &times;
+    = m
 
 = form_for @user, :url => sign_up_path, :method => :post do |f|
   .field
-    = f.label :rol, 'ROL USM (sin puntos ni guión)'
+    = f.label :rol, 'ROL USM (sin puntos, ej: 2773500-0)'
     = f.text_field :rol
     .clear
   
   .field
-    = f.label :rut, 'RUT (sin puntos ni guión)'
+    = f.label :rut, 'RUT (sin puntos, ej: 33333333-3)'
     = f.text_field :rut
     .clear
 
   .field
     = f.label :carreer, 'Carrera'
-    = f.select :carreer, ['Informática', 'Mecánica']
+    = f.select :carreer, User::CARREERS.sort_by { rand } # Shuffle them so no carreer is at the top
     .clear
 
   .field
