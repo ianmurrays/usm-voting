@@ -1,5 +1,9 @@
-%p.center 
-  Bienvenido al sistema de votaciones. Ingresa con tu cuenta de alumno USM.
+%p.center.explain
+  Bienvenido al sistema de votaciones. 
+  Ingresa con tu cuenta de alumno USM. 
+  Serás redireccionado al portal de autentificación de Google, donde deberás ingresar tu usuario y contraseña de tu correo
+  %strong institucional, 
+  y luego autorizar a este sistema para poder votar.
   %br
   %br
-  = link_to "<span>Ingresar con cuenta @alumnos.usm.cl &rarr;</span>".html_safe, "/auth/google", :class => 'button large green'
+  = link_to "<span>Ingresa con tu cuenta @alumnos.usm.cl &rarr;</span>".html_safe, "/auth/google", :class => 'button large green'

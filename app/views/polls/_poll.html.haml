@@ -8,12 +8,12 @@
       %span.closed cerrada
       \|
       %span.results= link_to "ver resultados", results_poll_path(poll), :remote => true
-    /\|
-    /= "creada el #{poll.created_at.strftime '%d/%m/%Y'}"
     - if poll.open?
       \|
       cierra en
       = distance_of_time_in_words(Time.now, poll.finish_date)
+    \|
+    = poll.created_at.strftime '%d/%m/%Y'
   %div.results-container{:id => "results_#{poll.id}"}
 
 .separator

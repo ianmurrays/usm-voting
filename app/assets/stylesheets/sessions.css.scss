@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.sessions {
-  // Add the sessions class to your body tag
-  // Then, place scoped styles here.
+  .explain {
+    line-height: 20px;
+  }
 }
